@@ -30,45 +30,48 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    getTimeFromCalendar();
+    if (selectedDates[0].getTime() < Date.now()) {
+      Notify.failure('Please choose a date in the future');
+      return;
+    }
+    Notify.success('Success date, push start, please!');
+    refs.getStartBtn.disabled = false;
+    
+    return;
   }
 }
 
 const flatpickrTime = flatpickr(refs.getInput, options);
 
+refs.getStartBtn.addEventListener('click', getTimeFromCalendar)
 function getTimeFromCalendar() {
   if (flatpickrTime.selectedDates[0].getTime() > Date.now()) {
-      
-    Notify.success('Success date, push start, please!');
+     
 
-    refs.getStartBtn.disabled = false;
-
-    refs.getStartBtn.addEventListener('click', startTimer) 
-
-    function startTimer() {
+    // function startTimer() {
       refs.getStartBtn.disabled = true;
       refs.getInput.disabled = true;
 
       const timerId = setInterval(() => {
-        
+
         let deltaTime = flatpickrTime.selectedDates[0].getTime() - Date.now();
-
+        
         timeUpdate(convertMs(deltaTime));
-     
-        if (deltaTime < 0) {
-          clearInterval(timerId);
-          timeClear();
-          Notify.success('Finish!');
-        };
+        finish(deltaTime, timerId);
+        
       }, 1000
-    );
+      )
+    // };
+  };
+};
+
+function finish(e, timerId) {
+  if (e < 0) {
+    clearInterval(timerId);
+    Notify.success('Finish!');
+    timeClear();
   }
-    return;
-  }
-  Notify.failure('Please choose a date in the future');
 }
-
-
 
 function convertMs(ms) {
   const second = 1000;
