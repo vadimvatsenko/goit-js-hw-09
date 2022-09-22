@@ -18,8 +18,8 @@ function clickStart() {
   clickStop(timerId);
 }
 
-function clickStop() {
-  clearTimeout(timerId);
+function clickStop(e) {
+  clearTimeout(e);
   refs.getStartBtn.disabled = false;
   refs.getStopBtn.disabled = true;
 }
