@@ -12,13 +12,14 @@ refs.getStopBtn.disabled = true;
 function clickStart() {
   refs.getStartBtn.disabled = true;
   refs.getStopBtn.disabled = false;
-  setInterval(() => {
+  const timerId = setInterval(() => {
   refs.getBody.style.backgroundColor = getRandomHexColor();
   }, 1000);
+  clickStop(timerId);
 }
 
-function clickStop() {
-  // clearTimeout(timerId);
+function clickStop(e) {
+  clearTimeout(e);
   refs.getStartBtn.disabled = false;
   refs.getStopBtn.disabled = true;
 }
