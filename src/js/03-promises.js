@@ -29,9 +29,9 @@ function handleSubmit(e) {
   } = e.currentTarget;
 
   //троки конвертируем в числа
-  firstDelay = Number(delay.value);
-  delayStep = Number(step.value);
-  amountValue = Number(amount.value);
+  let firstDelay = Number(delay.value);
+  let delayStep = Number(step.value);
+  let amountValue = Number(amount.value);
 
 
   for (let i = 1; i <= amountValue; i += 1) {

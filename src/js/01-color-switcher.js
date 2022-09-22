@@ -19,14 +19,11 @@ function clickStart() {
 
 }
 
-
-
 function clickStop() {
   clearTimeout(intervalId);
   refs.getStartBtn.disabled = false;
   refs.getStopBtn.disabled = true;
 }
-
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
