@@ -2,6 +2,9 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+
+
+
 require("flatpickr/dist/themes/confetti.css");
 
 Notify.init({
@@ -39,7 +42,7 @@ const options = {
     
     return;
   }
-}
+};
 
 const flatpickrTime = flatpickr(refs.getInput, options);
 
@@ -47,21 +50,18 @@ refs.getStartBtn.addEventListener('click', getTimeFromCalendar)
 function getTimeFromCalendar() {
   if (flatpickrTime.selectedDates[0].getTime() > Date.now()) {
      
-
-    // function startTimer() {
       refs.getStartBtn.disabled = true;
       refs.getInput.disabled = true;
 
-      const timerId = setInterval(() => {
+    const timerId = setInterval(() => {
 
-        let deltaTime = flatpickrTime.selectedDates[0].getTime() - Date.now();
+      let deltaTime = flatpickrTime.selectedDates[0].getTime() - Date.now();
         
-        timeUpdate(convertMs(deltaTime));
-        finish(deltaTime, timerId);
+      timeUpdate(convertMs(deltaTime));
+      finish(deltaTime, timerId);
         
-      }, 1000
-      )
-    // };
+    }, 1000
+    )
   };
 };
 
