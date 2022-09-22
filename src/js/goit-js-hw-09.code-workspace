@@ -1,0 +1,30 @@
+{
+  "folders": [
+    {
+      "name": "goit-js-hw-09",
+      "path": "../.."
+    },
+    {
+      "name": "goit-js-hw-06",
+      "path": "../../../goit-js-hw-06"
+    },
+    {
+      "name": "goit-js-hw-07",
+      "path": "../../../goit-js-hw-07"
+    },
+    {
+      "name": "goit-js-hw-08",
+      "path": "../../../goit-js-hw-08"
+    },
+    {
+      "name": "GRIP",
+      "path": "../../../../../GRIP"
+    },
+    {
+      "path": "../../../petrichenko"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "GRIP"
+  }
+}
