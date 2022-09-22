@@ -12,9 +12,10 @@ refs.getStopBtn.disabled = true;
 function clickStart() {
   refs.getStartBtn.disabled = true;
   refs.getStopBtn.disabled = false;
-  timerId = setInterval(() => {
+  const timerId = setInterval(() => {
   refs.getBody.style.backgroundColor = getRandomHexColor();
   }, 1000);
+  clickStop(timerId);
 }
 
 function clickStop() {
