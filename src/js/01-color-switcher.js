@@ -8,18 +8,21 @@ refs.getStartBtn.addEventListener("click", clickStart);
 refs.getStopBtn.addEventListener("click", clickStop);
 
 refs.getStopBtn.disabled = true;
+let intervalId = 0;
 
 function clickStart() {
   refs.getStartBtn.disabled = true;
   refs.getStopBtn.disabled = false;
-  const timerId = setInterval(() => {
+  intervalId = setInterval(() => {
   refs.getBody.style.backgroundColor = getRandomHexColor();
   }, 1000);
-  clickStop(timerId);
+
 }
 
-function clickStop(e) {
-  clearTimeout(e);
+
+
+function clickStop() {
+  clearTimeout(intervalId);
   refs.getStartBtn.disabled = false;
   refs.getStopBtn.disabled = true;
 }
